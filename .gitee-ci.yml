@@ -1,0 +1,14 @@
+image: openjdk:11-jdk
+
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - chmod +x gradlew
+    - ./gradlew assembleRelease
+  artifacts:
+    paths:
+      - app/build/outputs/apk/release/app-release.apk
+    expire_in: 1 week 
